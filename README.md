@@ -1,6 +1,6 @@
 # numbers_to_words
 
-A new Flutter project.
+A simple Flutter project that converts number to words.
 
 ## Getting Started
 
