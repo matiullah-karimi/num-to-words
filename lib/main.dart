@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:numbers_to_words/converter.dart';
+import 'package:numbers_to_words/number_to_words.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,14 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Padding(
         padding: EdgeInsets.all(10.0),
-              child: Center(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter the number'
-                ),
+                decoration: InputDecoration(hintText: 'Enter the number'),
                 keyboardType: TextInputType.number,
                 maxLength: 12,
                 onChanged: (s) {
@@ -53,17 +51,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       number = "";
                       return;
                     }
-                    number = NumberToWords.convert(int.parse(s));   
+                    number = NumberToWords.convert(int.parse(s), "da");
                   });
                 },
               ),
-              Text(
-                '$number'
-              ),
+              Text('$number'),
             ],
           ),
         ),
-      )
+      ),
     );
   }
 }
