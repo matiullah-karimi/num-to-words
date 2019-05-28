@@ -1,4 +1,4 @@
-name: numbers_to_words
+name: flutter_numbers_to_words
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -15,10 +15,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  numbers_to_words: ^0.1.1
 
 dev_dependencies:
   flutter_test:

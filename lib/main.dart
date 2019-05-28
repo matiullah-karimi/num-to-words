@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:numbers_to_words/number_to_words.dart';
+import 'package:numbers_to_words/numbers_to_words.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String number = '';
+  String dariNumber = '';
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(10.0),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               TextField(
                 decoration: InputDecoration(hintText: 'Enter the number'),
@@ -49,13 +50,41 @@ class _MyHomePageState extends State<MyHomePage> {
                   setState(() {
                     if (s.isEmpty) {
                       number = "";
+                      dariNumber = "";
                       return;
                     }
-                    number = NumberToWords.convert(int.parse(s), "da");
+                    number = NumberToWords.convert(int.parse(s), "en");
+                    dariNumber = NumberToWords.convert(int.parse(s), "da");
                   });
                 },
               ),
-              Text('$number'),
+              Card(
+                color: Colors.blue,
+                elevation: 3.0,
+                child: Container(
+                    alignment: Alignment.centerRight,
+                    width: double.infinity,
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      '$dariNumber',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    )),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Card(
+                color: Colors.blue,
+                elevation: 3.0,
+                child: Container(
+                    alignment: Alignment.centerRight,
+                    width: double.infinity,
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      '$number',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    )),
+              ),
             ],
           ),
         ),
